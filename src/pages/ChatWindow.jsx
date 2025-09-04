@@ -16,16 +16,17 @@ export default function ChatWindow({chatId}) {
 
     const [inputText, setInputText] = useState("");
 
-  // Dummy AI suggestion
+
     const aiSuggestion = chats.find(c => c.id == id)?.Ai_suggestion;
 
     const handleAiSuggestion = () => {
-        setInputText(aiSuggestion); // Fill input with AI suggestion
+        setInputText(aiSuggestion); 
     };
 
     useEffect(() => {
     setAiOutput(chats.find(c => c.id == id)?.summary);
     setShowAiOutput(false); 
+    setInputText("")
     
     }, [id]);
 
@@ -42,7 +43,7 @@ export default function ChatWindow({chatId}) {
         <div className="flex items-center gap-3 p-4 border-b">
         <h2 className="text-lg font-bold">{chatName}</h2>
         </div>
-        <div className="flex-1 flex flex-col-reverse overflow-y-auto p-4 space-y-2">
+        <div className="flex-1 flex flex-col overflow-y-auto p-4 space-y-2">
         {msgs.map((m, i) => (
             <div
             key={i}
