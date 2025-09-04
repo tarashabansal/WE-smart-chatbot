@@ -1,26 +1,35 @@
 {
     "chats": [
-    { "id": 1, "name": "Mayanshi", "lastMessage": "Let's sync tomorrow", "time": "7:36 PM" , "profile_picture":"/src/assets/mayanshi.jpg"},
-    { "id": 2, "name": "Parth", "lastMessage": "Deadline moved to Friday", "time": "02:10 PM" , "profile_picture":"/src/assets/parth.jpg"},
-    { "id": 3, "name": "Navya", "lastMessage": "Got it, thanks!", "time": "Yesterday", "profile_picture":"/src/assets/navya.jpg" }
+    { "id": 1, "name": "Mayanshi", "lastMessage": "Let's sync tomorrow", 
+    "time": "7:36 PM" , "profile_picture":"/src/assets/mayanshi.jpg",
+    "summary":"Mayanshi and you greeted each other and she asked to meet tomorrow.",
+    "Ai_suggestion":"Sure, let’s sync tomorrow at 3 PM!"},
+    { "id": 2, "name": "Parth", "lastMessage": "Deadline moved to Friday", "time": "02:10 PM" ,
+    "profile_picture":"/src/assets/parth.jpg",
+    "summary":"Parth reminded you of the 4 PM meeting and also confirmed that the deadline is move to friday for the ongoing project",
+    "Ai_suggestion":"Great! See you in the meeting!"},
+    { "id": 3, "name": "Navya", "lastMessage": "Got it, thanks!", "time": "Yesterday",
+    "profile_picture":"/src/assets/navya.jpg",
+    "summary":"Navya asked if you were joining the call and you confirmed.",
+    "Ai_suggestion":"Yes! See you." }
     ],
     "messages": {
     "1": [
-        { "from": "Alice", "text": "Hey! How are you?" },
+        { "from": "Mayanshi", "text": "Hey! How are you?" },
         { "from": "Me", "text": "Doing well, you?" },
-        { "from": "Alice", "text": "Me Too." },
+        { "from": "Mayanshi", "text": "Me Too." },
         { "from": "Me", "text":"Let's sync tomorrow" }
     ],
     "2": [
-        { "from": "Manager", "text": "Reminder: meeting at 4 PM." },
+        { "from": "Parth", "text": "Reminder: meeting at 4 PM." },
         { "from": "Me", "text": "Okay, noted." },
         { "from": "Me", "text": "What about the deadline for the project?" },
-        { "from": "Manager", "text": "Deadline moved to Friday" }
+        { "from": "Parth", "text": "Deadline moved to Friday" }
     ],
     "3": [
-        { "from": "Bob", "text": "Are you joining the call?" },
+        { "from": "Navya", "text": "Are you joining the call?" },
         { "from": "Me", "text": "Yes, on it." },
-        { "from": "Bob", "text": "Got it, thanks!" }
+        { "from": "Navya", "text": "Got it, thanks!" }
     ]
     }
 }
