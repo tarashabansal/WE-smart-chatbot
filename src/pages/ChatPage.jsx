@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";   
 import ChatList from "./ChatList"
 import ChatWindow from "./ChatWindow"

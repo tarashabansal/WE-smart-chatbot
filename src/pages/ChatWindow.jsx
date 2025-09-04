@@ -1,3 +1,4 @@
+import { Tooltip } from "react-tooltip";
 import { useState, useEffect } from "react";
 import data from "../data/dummyData.json"
 import { TbBulbFilled } from "react-icons/tb";
@@ -56,7 +57,7 @@ export default function ChatWindow({chatId}) {
         </div>
 
         {showAiOutput && aiOutput  && (
-        <div className="p-3 mb-3 bg-yellow-100 rounded-lg">{aiOutput}</div>
+        <div className="flex p-3 mb-3 bg-green-100 rounded-lg gap-2"><LuText className="w-6 h-6" />{aiOutput}</div>
         )}
 
         <div className="flex items-center border rounded-lg p-2 bg-white shadow-md ">
@@ -64,13 +65,19 @@ export default function ChatWindow({chatId}) {
             placeholder="Type Something..."
             className="flex-grow outline-none px-2 py-1"></input>
             <div className="flex space-x-2">
-                <button className="p-3  rounded-lg">
+                <Tooltip id= "send"/>
+                <button data-tooltip-id="send"data-tooltip-content="Send Message"
+                className="p-3  rounded-lg">
                     <IoSend className="w-6 h-6" />
                 </button>
-                <button onClick={handleAiSuggestion} className="p-3  rounded-lg">
+                <Tooltip id= "AI"/>
+                <button data-tooltip-id="AI" data-tooltip-content="Generate AI reply"
+                onClick={handleAiSuggestion} className="p-3  rounded-lg">
                     <TbBulbFilled className="w-6 h-6" />
                 </button>
-                <button onClick={toggleAiOutput} className="p-3  rounded-lg">
+                <Tooltip id= "summary" />
+                <button data-tooltip-id="summary" data-tooltip-content="Summary"
+                onClick={toggleAiOutput} className="p-3  rounded-lg">
                     <LuText className="w-6 h-6" />
                 </button>
             </div>
