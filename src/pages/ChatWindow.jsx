@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
 import data from "../data/dummyData.json"
+import { TbBulbFilled } from "react-icons/tb";
+import { LuText } from "react-icons/lu";
+import { IoSend } from "react-icons/io5";
 import '../index.css'
 
 
@@ -11,9 +13,19 @@ export default function ChatWindow({chatId}) {
     const [showAiOutput, setShowAiOutput] = useState(false);
     const [aiOutput, setAiOutput] = useState(summary);
 
+    const [inputText, setInputText] = useState("");
+
+  // Dummy AI suggestion
+    const aiSuggestion = chats.find(c => c.id == id)?.Ai_suggestion;
+
+    const handleAiSuggestion = () => {
+        setInputText(aiSuggestion); // Fill input with AI suggestion
+    };
+
     useEffect(() => {
     setAiOutput(chats.find(c => c.id == id)?.summary);
-    setShowAiOutput(false); // hide AI output on chat switch
+    setShowAiOutput(false); 
+    
     }, [id]);
 
     const toggleAiOutput = () => {
@@ -47,21 +59,21 @@ export default function ChatWindow({chatId}) {
         <div className="p-3 mb-3 bg-yellow-100 rounded-lg">{aiOutput}</div>
         )}
 
-        <div className="flex py-3 gap-2 mt-auto">
-            <input type="text" placeholder={`AI Suggestion: ${chats.find(c => c.id == id)?.Ai_suggestion}`}
-            className="flex-1 border rounded-lg px-3 py-2 focus:outline-none  focus:ring-blue-400"></input>
-
-            <button className="px-3 py-2 bg-blue-500 text-white rounded-lg">
-                Send
-            </button>
-
-            <button
-            onClick={toggleAiOutput}
-            className="px-3 py-2 bg-green-500 text-white rounded-lg"
-        >
-            Summarize Thread
-        </button>
-
+        <div className="flex items-center border rounded-lg p-2 bg-white shadow-md ">
+            <input type="text" value={inputText} onChange={(e) => setInputText(e.target.value)} 
+            placeholder="Type Something..."
+            className="flex-grow outline-none px-2 py-1"></input>
+            <div className="flex space-x-2">
+                <button className="p-3  rounded-lg">
+                    <IoSend className="w-6 h-6" />
+                </button>
+                <button onClick={handleAiSuggestion} className="p-3  rounded-lg">
+                    <TbBulbFilled className="w-6 h-6" />
+                </button>
+                <button onClick={toggleAiOutput} className="p-3  rounded-lg">
+                    <LuText className="w-6 h-6" />
+                </button>
+            </div>
         </div>
         
     </div>
