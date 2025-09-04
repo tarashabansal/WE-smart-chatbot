@@ -71,8 +71,6 @@ export default function NewChat() {
                             Start a conversation to see your messages here
                         </p>
                     </div>
-
-                    {/* Input Bar */}
                     <div className="flex items-center border rounded-lg p-2 bg-white shadow-md">
                         <input
                             type="text"
@@ -95,7 +93,7 @@ export default function NewChat() {
                             <Tooltip id="AI" />
                             <button
                                 data-tooltip-id="AI"
-                                data-tooltip-content="Generate AI reply"
+                                data-tooltip-content="Generate Icebreaker"
                                 onClick={handleAiIcebreaker}
                                 className="p-3 rounded-lg hover:bg-gray-100"
                             >

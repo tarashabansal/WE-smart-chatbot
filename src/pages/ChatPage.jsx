@@ -5,7 +5,7 @@ import ChatWindow from "./ChatWindow"
 import data from "../data/dummyData.json"
 export default function ChatPage() {
     const {chats, messages} = data
-    const [selectedChatId, setSelectedChatId] = useState(chats[0]?.id);
+    const [selectedChatId, setSelectedChatId] = useState(0);
     return(
         
         <div className="flex h-screen w-screen ">

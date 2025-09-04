@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import data from "../data/dummyData.json";
 import '../index.css'
 

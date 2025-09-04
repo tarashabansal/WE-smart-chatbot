@@ -4,12 +4,13 @@ import data from "../data/dummyData.json"
 import { TbBulbFilled } from "react-icons/tb";
 import { LuText } from "react-icons/lu";
 import { IoSend } from "react-icons/io5";
+import { TiMessages } from "react-icons/ti";
 import '../index.css'
 
 
 const {chats,messages} = data
 export default function ChatWindow({chatId}) {
-    const id  = chatId;
+    const id  = chatId || 0;
     const summary = chats.find(c => c.id == id)?.summary
     const [showAiOutput, setShowAiOutput] = useState(false);
     const [aiOutput, setAiOutput] = useState(summary);
@@ -34,16 +35,27 @@ export default function ChatWindow({chatId}) {
         setShowAiOutput(prev => !prev); 
     };
     const msgs = messages[id] || [];
-    const chatName = chats.find(c => c.id == id)?.name || "Chat";
+    const chatName = chats.find(c => c.id == id)?.name||"Chat";
     const profilePic = chats.find(c => c.id == id)?.profile_picture;
 
     return (
     <div>
+        
         <div className="flex flex-col h-screen p-4">
-        <div className="flex items-center gap-3 p-4 border-b">
-        <h2 className="text-lg font-bold">{chatName}</h2>
-        </div>
+            {id!==0 &&
+                <div className="flex items-center gap-3 p-4 border-b">
+                <h2 className="text-lg font-bold">{chatName}</h2>
+                </div>
+            }
         <div className="flex-1 flex flex-col overflow-y-auto p-4 space-y-2">
+        {id===0 &&
+        <div className="flex-1 flex flex-col justify-center items-center text-center space-y-2">
+                <TiMessages className="w-20 h-20 text-gray-400" />
+                <p className="text-gray-500">
+                    Select a chat to view the messages here.
+                </p>
+            </div>
+        }
         {msgs.map((m, i) => (
             <div
             key={i}
@@ -57,10 +69,10 @@ export default function ChatWindow({chatId}) {
         ))}
         </div>
 
-        {showAiOutput && aiOutput  && (
+        {showAiOutput && aiOutput && (
         <div className="flex p-3 mb-3 bg-green-100 rounded-lg gap-2"><LuText className="w-6 h-6" />{aiOutput}</div>
         )}
-
+        {id !==0  &&
         <div className="flex items-center border rounded-lg p-2 bg-white shadow-md ">
             <input type="text" value={inputText} onChange={(e) => setInputText(e.target.value)} 
             placeholder="Type Something..."
@@ -72,19 +84,21 @@ export default function ChatWindow({chatId}) {
                     <IoSend className="w-6 h-6" />
                 </button>
                 <Tooltip id= "AI"/>
-                <button data-tooltip-id="AI" data-tooltip-content="Generate AI reply"
+                <button data-tooltip-id="AI" data-tooltip-content="Smart reply"
                 onClick={handleAiSuggestion} className="p-3  rounded-lg">
                     <TbBulbFilled className="w-6 h-6" />
                 </button>
                 <Tooltip id= "summary" />
-                <button data-tooltip-id="summary" data-tooltip-content="Summary"
+                <button data-tooltip-id="summary" data-tooltip-content="Summarize Thread"
                 onClick={toggleAiOutput} className="p-3  rounded-lg">
                     <LuText className="w-6 h-6" />
                 </button>
             </div>
         </div>
+    }
         
     </div>
+
     </div>
     );
 }
