@@ -1,9 +1,8 @@
 import { useState } from "react";   
-import { Link } from "react-router-dom";
 import ChatList from "./ChatList"
-import ChatWindow from "./ChatWindow"
+import NewChat from "./NewChat"
 import data from "../data/dummyData.json"
-export default function ChatPage() {
+export default function NewChatPage() {
     const {chats, messages} = data
     const [selectedChatId, setSelectedChatId] = useState(chats[0]?.id);
     return(
@@ -15,15 +14,10 @@ export default function ChatPage() {
                 selectedChatId={selectedChatId}
                 onSelectChat={setSelectedChatId}
                 />
-                <div className="flex mt-auto p-2">
-                <Link to="/new" className=" bg-blue-500 text-white px-4 py-2 rounded-full shadow " >
-                    + New Chat
-                </Link>
-        </div>
             </div>
 
             <div className="flex-1">
-                <ChatWindow chatId={selectedChatId} />
+                <NewChat  />
             </div>
             
         </div>
