@@ -1,0 +1,26 @@
+{
+    "chats": [
+    { "id": 1, "name": "Mayanshi", "lastMessage": "Let's sync tomorrow", "time": "7:36 PM" },
+    { "id": 2, "name": "Parth", "lastMessage": "Deadline moved to Friday", "time": "02:10 PM" },
+    { "id": 3, "name": "Navya", "lastMessage": "Got it, thanks!", "time": "Yesterday" }
+    ],
+    "messages": {
+    "1": [
+        { "from": "Alice", "text": "Hey! How are you?" },
+        { "from": "Me", "text": "Doing well, you?" },
+        { "from": "Alice", "text": "Me Too." },
+        { "from": "Me", "text":"Let's sync tomorrow" }
+    ],
+    "2": [
+        { "from": "Manager", "text": "Reminder: meeting at 4 PM." },
+        { "from": "Me", "text": "Okay, noted." },
+        { "from": "Me", "text": "What about the deadline for the project?" },
+        { "from": "Manager", "text": "Deadline moved to Friday" }
+    ],
+    "3": [
+        { "from": "Bob", "text": "Are you joining the call?" },
+        { "from": "Me", "text": "Yes, on it." },
+        { "from": "Bob", "text": "Got it, thanks!" }
+    ]
+    }
+}
