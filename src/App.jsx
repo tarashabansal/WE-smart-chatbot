@@ -1,10 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import './index.css'
+import ChatList from './pages/ChatList'
 
 export default function App() {
   return (
-    <div>
-      Hello App
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<ChatList />} />
+      </Routes>
+    </Router>
   );
 }
