@@ -1,8 +1,8 @@
 {
     "chats": [
-    { "id": 1, "name": "Mayanshi", "lastMessage": "Let's sync tomorrow", "time": "7:36 PM" },
-    { "id": 2, "name": "Parth", "lastMessage": "Deadline moved to Friday", "time": "02:10 PM" },
-    { "id": 3, "name": "Navya", "lastMessage": "Got it, thanks!", "time": "Yesterday" }
+    { "id": 1, "name": "Mayanshi", "lastMessage": "Let's sync tomorrow", "time": "7:36 PM" , "profile_picture":"/src/assets/mayanshi.jpg"},
+    { "id": 2, "name": "Parth", "lastMessage": "Deadline moved to Friday", "time": "02:10 PM" , "profile_picture":"/src/assets/parth.jpg"},
+    { "id": 3, "name": "Navya", "lastMessage": "Got it, thanks!", "time": "Yesterday", "profile_picture":"/src/assets/navya.jpg" }
     ],
     "messages": {
     "1": [
